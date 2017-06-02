@@ -1,0 +1,19 @@
+{
+    "family": "%NAME%",
+    "containerDefinitions": [
+        {
+            "image": "%REPOSITORY_URI%:development-v_%BUILD_NUMBER%",
+            "name": "%NAME%",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [],
+            "environment": [
+                {
+                    "name": "MUSIC_BOT_TOKEN",
+                    "value": "%MUSIC_BOT_DEVELOPMENT_TOKEN%"
+                }
+            ]
+        }
+    ]
+}

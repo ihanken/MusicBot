@@ -14,10 +14,19 @@ MAINTAINER ihanken, https://github.com/ihanken/league-bot
 #     && sudo apt-get install libopus-dev -y \
 #     && sudo apt-get install libffi-dev -y
 
-RUN apk update
+RUN apk update && apk upgrade
 
-RUN apk add curl \
-    py-pip
+RUN apk add build-base \
+    curl \
+    python3 \
+    python3-dev \
+    ffmpeg \
+    opus-dev \
+    openssl-dev \
+    libffi-dev \
+    gcc \
+    libxml2-dev \
+    libxslt-dev \
 
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
@@ -28,7 +37,6 @@ WORKDIR /musicBot
 
 #Install PIP dependencies
 RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade setuptools
 RUN pip3 install -r requirements.txt
 
 #Add volume for configuration
